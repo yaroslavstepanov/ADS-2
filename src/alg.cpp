@@ -13,7 +13,9 @@ return k;
 int countPairs2(int *arr, int len, int value) {
 int k = 0;
 for (int i = 0; i < len - 1; i++) {
+if(arr[I]*2 > value) break;
 for (int j = len - 1; j > i; j--) {
+if(arr[I]+arr[j] < value) break;
 if (arr[i] + arr[j] == value) {
 k++;
 }
