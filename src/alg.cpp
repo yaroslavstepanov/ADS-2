@@ -11,14 +11,21 @@ k++;
 return k;
 }
 int countPairs2(int *arr, int len, int value) {
-int k = 0;
-for (int i = 0; i < len - 1; i++) {
-if(arr[i]*2 > value) break;
-for (int j = len - 1; j > i; j--) {
-if(arr[i]+arr[j] < value) break;
-if (arr[i] + arr[j] == value) {
-k++;
+int l = 0, r = len - 1, k = 0;
+while (r - 1 > l) {
+int middle = (r + l) / 2;
+if (arr[middle] <= value)
+l = middle;
+else
+r = middle;
 }
+len = r-1;
+for (int i = len; i >=0; i--) {
+for (int j = 0; j < i; j++) {
+if (arr[i] + arr[j] > value)
+break;
+if (arr[i] + arr[j] == value)
+k++;
 }
 }
 return k;
